@@ -1,10 +1,10 @@
+#define _GNU_SOURCE
+
 #include <stdio.h>
 #include <unistd.h>
 #include <signal.h>
 #include <stdlib.h>
 #include <string.h>
-
-#define _GNU_SOURCE
 
 void handler(int signum)
 {

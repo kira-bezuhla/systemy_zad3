@@ -1,3 +1,6 @@
+#define _POSIX_C_SOURCE 200112L
+#define _GNU_SOURCE
+
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/types.h>
@@ -6,8 +9,7 @@
 #include <signal.h>
 #include <string.h>
 
-#define _POSIX_C_SOURCE 200112L
-#define _GNU_SOURCE
+
 
 int main(int argc, char *argv[]) //"<numer sygnalu dla procesu potomnego> <numer sygnalu dla procesu macierzystego> <mode: default | ignore | custom>"
 {
