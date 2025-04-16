@@ -1,6 +1,5 @@
 CC = gcc
-#CFLAGS = -Wall -std=c99 -pedantic
-CFLAGS =
+CFLAGS = -Wall -std=c99 -pedantic
 TARGETS = runA runB runC runCa
 SOURCES = pktA.c pktB.c pktC.c pktC_additional.c
 EXTRA_FILES = README.TXT 

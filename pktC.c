@@ -18,8 +18,7 @@ int main(int argc, char *argv[]) //"<numer sygnalu> <ilosc procesow potomnych>"
         exit(1);
     }
 
-    int signum = atoi(argv[1]);
-    int child_count = atoi(argv[2]);
+    int signum = atoi(argv[1]);    
     pid_t leader_pid = fork();
 
     if (leader_pid < 0)
@@ -51,21 +50,20 @@ int main(int argc, char *argv[]) //"<numer sygnalu> <ilosc procesow potomnych>"
             exit(6);
         }
 
-        // lider czeka zakonczenia procesow potomnych i wypisuje ich PID i status zakonczenia
-        for (int i = 0; i < child_count; i++)
-        {
+        // lider czeka zakonczenia runCa i wypisuje ich PID i status zakonczenia
+        
             int status;
             pid_t terminated_pid = wait(&status);
             if (WIFSIGNALED(status))
             {
-                printf("process %d killed by signal %d (%s)\n",
+                printf("runCa process %d killed by signal %d (%s)\n",
                        terminated_pid, WTERMSIG(status), strsignal(WTERMSIG(status)));
             }
             else
             {
-                printf("process %d exited with code %d\n", terminated_pid, WEXITSTATUS(status));
+                printf("runCa process %d exited with code %d\n", terminated_pid, WEXITSTATUS(status));
             }
-        }
+        
         // exit(EXIT_SUCCESS);
     }
     else
